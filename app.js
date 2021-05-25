@@ -29,6 +29,7 @@ var indexRouter = require('./routes/index');
 var registerRouter = require('./routes/register');
 var loginRouter = require('./routes/login');
 var messageRouter = require('./routes/message');
+var adminRouter = require('./routes/admin')
 
 var app = express();
 
@@ -45,7 +46,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/register', registerRouter);
 app.use('/', indexRouter);
 app.use('/', loginRouter);
-app.use('/', messageRouter)
+app.use('/', messageRouter);
+app.use('/', adminRouter);
 
 
 

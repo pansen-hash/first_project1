@@ -17,13 +17,21 @@ router.post('/', (req, res) => {
             console.log(err);
             return
         }
-        if (rows[0].email != undefined && email == rows[0].email && pass == rows[0].password) {
-            res.redirect("/index")
+        if (rows[0].email != undefined && email == rows[0].email && pass == rows[0].password && email == "1132836340@qq.com") {
+            res.redirect("/admin")
 
         } else {
-            res.send('defeat')
-        }
+            if (err) {
+                console.log(err);
+                return
+            }
+            if (rows[0].email != undefined && email == rows[0].email && pass == rows[0].password) {
+                res.redirect("/index")
 
+            } else {
+                res.send('该用户不存在')
+            }
+        }
     })
 })
 
