@@ -18,7 +18,8 @@ router.post('/', (req, res) => {
             return
         }
         if (rows[0].email != undefined && email == rows[0].email && pass == rows[0].password) {
-            res.send('success')
+            res.redirect("/index")
+
         } else {
             res.send('defeat')
         }
