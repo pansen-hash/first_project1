@@ -30,6 +30,10 @@ var registerRouter = require('./routes/register');
 var loginRouter = require('./routes/login');
 var messageRouter = require('./routes/message');
 var adminRouter = require('./routes/admin')
+var admin_imgRouter = require('./routes/admin_img');
+var admin_messageRouter = require('./routes/admin_message');
+var admin_publishRouter = require('./routes/admin_publish');
+var admin_userRouter = require('./routes/admin_user');
 
 var app = express();
 
@@ -48,6 +52,10 @@ app.use('/', indexRouter);
 app.use('/', loginRouter);
 app.use('/', messageRouter);
 app.use('/', adminRouter);
+app.use('/', admin_imgRouter);
+app.use('/', admin_messageRouter);
+app.use('/', admin_publishRouter);
+app.use('/', admin_userRouter);
 
 
 
