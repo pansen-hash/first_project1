@@ -34,6 +34,7 @@ var admin_imgRouter = require('./routes/admin_img');
 var admin_messageRouter = require('./routes/admin_message');
 var admin_publishRouter = require('./routes/admin_publish');
 var admin_userRouter = require('./routes/admin_user');
+var sendRouter = require('./routes/send');
 
 var app = express();
 
@@ -56,6 +57,7 @@ app.use('/', admin_imgRouter);
 app.use('/', admin_messageRouter);
 app.use('/', admin_publishRouter);
 app.use('/', admin_userRouter);
+app.use('/', sendRouter);
 
 
 

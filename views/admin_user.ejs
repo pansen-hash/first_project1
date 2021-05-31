@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>jQuery后台左侧伸缩菜单代码 - 站长素材</title>
+    <title>欢迎来到管理界面</title>
 
     <link rel="stylesheet" type="text/css" href="stylesheets/admin/nav.css">
     <link rel="stylesheet" type="text/css" href="fonts/iconfont.css">
@@ -44,7 +44,37 @@
 
         </div>
         <div class="rightmar">
+            <div class="first">
+                <span class="sp-one">姓名</span>
+                <div class="search-boxone">
+                    <input type="text" class="search-txt" id="hero" placeholder="userName">
+                </div>
+                <span class="sp-two"></span>
+                <div class="search-boxtwo" id="site">
 
+                </div>
+                <span class="sp-three"></span>
+                <div class="search-boxthree">
+
+                </div>
+                <span class="search-btnone" id="search_btnone" onclick="query()">查询</span>
+                <span class="search-btntwo" id="eliminate">清空</span>
+            </div>
+            <div class="two">
+                <span class="btn" id="add" onclick="Show();">+添加</span>
+            </div>
+            <div class="three">
+                <table class="four" id="four" cellpadding="0" cellspacing="0" style="border-collapse:collapse">
+                    <tr class="row-one" id="row-one">
+                        <td class="width: 265px;">ID</td>
+                        <td class="secondColumn">USERNAME</td>
+                        <td class="thiedlyColumn">PASSWORD</td>
+                        <td class="fourthlyColumn">EMAIL</td>
+                        <td class="fifthColumn">位置</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 

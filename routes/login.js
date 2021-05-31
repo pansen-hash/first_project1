@@ -8,32 +8,41 @@ router.get('/', function(req, res, next) {
     res.render('login');
 });
 router.post('/', (req, res) => {
-    let email = req.body.email;
-    let pass = req.body.password;
-    var mysqlQuery = "SELECT * FROM tab_user WHERE email = '" + email + "'"
-
-    db.DBConnection.query(mysqlQuery, function(err, rows, fields) {
+    let input_email = req.body.email;
+    let input_pass = req.body.password;
+    var mysqlQuery_admin = "SELECT * FROM tab_admin WHERE email = '" + input_email + "' ";
+    db.DBConnection.query(mysqlQuery_admin, function(err, rows_admin, fields) {
         if (err) {
             console.log(err);
             return
         }
-        if (rows[0].email != undefined && email == rows[0].email && pass == rows[0].password && email == "1132836340@qq.com") {
-            res.redirect("/admin")
-
+        if (rows_admin.length == 0) {
+            var mysqlQuery_user = "SELECT * FROM tab_user WHERE email = '" + input_email + "' ";
+            db.DBConnection.query(mysqlQuery_user, (err, rows_user, fields) => {
+                if (err) {
+                    console.log(err);
+                    return
+                }
+                if (rows_user[0].email == input_email && rows_user[0].password == input_pass) {
+                    res.redirect('/index')
+                } else {
+                    res.redirect('/send')
+                }
+            })
+        } else if (rows_admin.length != 0 && rows_admin[0].email == input_email && rows_admin[0].password == input_pass) {
+            res.redirect('/admin')
         } else {
-            if (err) {
-                console.log(err);
-                return
-            }
-            if (rows[0].email != undefined && email == rows[0].email && pass == rows[0].password) {
-                res.redirect("/index")
-
-            } else {
-                res.send('该用户不存在')
-            }
+            res.redirect('/send')
         }
-    })
-})
+    });
+
+
+
+
+
+
+});
+
 
 
 module.exports = router;
