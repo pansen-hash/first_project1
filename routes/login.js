@@ -26,6 +26,7 @@ router.post('/', (req, res) => {
                 if (rows_user[0].email == input_email && rows_user[0].password == input_pass) {
                     res.redirect('/index')
                 } else {
+
                     res.redirect('/send')
                 }
             })
