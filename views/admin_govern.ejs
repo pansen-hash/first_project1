@@ -13,7 +13,150 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="stylesheets/adminlte/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
+
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <style>
+        .tb {
+            margin: 0px 200px 100px 100px;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .btn {
+            padding-left: 0px;
+        }
+        
+        .page_up {
+            text-align: center;
+            border: 1px;
+            bottom: 0px;
+        }
+        
+        .page_down {
+            border: 1px;
+            text-align: center;
+            bottom: 0px;
+        }
+        
+        .btn_add {
+            background-color: black;
+            color: cornsilk;
+            border: 0px;
+            padding: 4px 4px 4px 4px;
+            margin: 0px 0px 0px 100px;
+        }
+        
+        .search-btnLeft {
+            width: 59px;
+            height: 31px;
+            background-color: dodgerblue;
+            color: white;
+            text-align: center;
+            line-height: 30px;
+            margin-top: 20px;
+            font-size: 14px;
+            float: left;
+            margin-left: 315px;
+            border: 0px;
+        }
+        
+        .search-btnMiddle {
+            width: 59px;
+            height: 31px;
+            background-color: dodgerblue;
+            color: white;
+            text-align: center;
+            line-height: 30px;
+            margin-top: 20px;
+            font-size: 14px;
+            float: left;
+            margin-left: 5px;
+            border: 0px;
+        }
+        
+        .search-btnRight {
+            width: 59px;
+            height: 31px;
+            background-color: dodgerblue;
+            color: white;
+            text-align: center;
+            line-height: 30px;
+            margin-top: 20px;
+            font-size: 14px;
+            float: left;
+            margin-left: 5px;
+            border: 0px;
+        }
+        
+        .X {
+            color: white;
+        }
+        
+        .add_text {
+            color: white;
+        }
+        /*         
+        .c1 {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, .5);
+            z-index: 1001;
+        }
+        
+        .c2 {
+            background-color: white;
+            position: fixed;
+            width: 800px;
+            height: 400px;
+            top: 50%;
+            left: 50%;
+            z-index: 1002;
+            margin-top: -300px;
+            margin-left: -450px;
+        }
+        */
+        
+        .text_span {
+            margin: 10px 0px 0px 260px;
+        }
+        
+        .search-txt {
+            width: 180px;
+            height: 25px;
+            margin: 10px 0px 10px 0px;
+        }
+        
+        .black_overlay {
+            display: none;
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            z-index: 1001;
+            -moz-opacity: 0.8;
+            opacity: .80;
+            filter: alpha(opacity=88);
+        }
+        
+        .white_content {
+            display: none;
+            position: absolute;
+            top: 25%;
+            left: 25%;
+            width: 55%;
+            height: 55%;
+            padding: 20px;
+            border: 0px solid;
+            background-color: white;
+            z-index: 1002;
+            overflow: auto;
+        }
+    </style>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -43,6 +186,7 @@
                 <i class="fas fa-search"></i>
               </button>
                     </div>
+                    <div> <button class="btn_add" id="add"><a class="add_text" href="javascript:void(0)" onclick="document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">新增</a></button></div>
                 </div>
             </form>
 
@@ -650,8 +794,37 @@
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
-
-
+            <table class="tb">
+                <tr>
+                    <th>ID</th>
+                    <th>用户名</th>
+                    <th>密码</th>
+                    <th>邮箱</th>
+                    <th>操作</th>
+                </tr>
+                <%for(let o of data){%>
+                    <tr>
+                        <td>
+                            <%=o.admin_id %>
+                        </td>
+                        <td>
+                            <%=o.username %>
+                        </td>
+                        <td>
+                            <%=o.password %>
+                        </td>
+                        <td>
+                            <%=o.email %>
+                        </td>
+                        <td><button class="btn">删除</button>
+                            <button class="btn">修改</button>
+                        </td>
+                    </tr>
+                    <%}%>
+            </table>
+            <!-- <div class="page_up"><button>上一页</button>
+            </div>
+            <div class="page_down"><button>下一页</button></div> -->
         </div>
         <!-- /.content-wrapper -->
 
@@ -669,10 +842,37 @@
             </div>
         </footer>
     </div>
+    <!-- <div class="c1 hide" id="shade"></div>
+    <div class="c2 hide" id="modal">
+        <span class="text_span" id="">ID:&emsp;&emsp;</span>
+        <input type="text" class="search-txt" id="input_di" placeholder="请输入ID"><br>
+        <span class="text_span" id="">用户名:</span>
+        <input type="text" class="search-txt" id="input_name" placeholder="请输入用户名"><br>
+        <span class="text_span" id="">密码:&emsp;</span>
+        <input type="text" class="search-txt" id="input_password" /><br>
+        <span class="text_span" id="">邮箱:&emsp;</span>
+        <input type="text" class="search-txt" id="input_email" placeholder="请输入邮箱"><br>
+        <span><button class="search-btnLeft" onclick="search_btnLeft()">确认</button></span>
+        <span><button class="search-btnMiddle" onclick="eliminateMin()">清空</button></span>
+        <span><button class="search-btnRight" onclick="Hide()">X</button></span>
+    </div> -->
     <!-- ./wrapper -->
 
     <!-- REQUIRED SCRIPTS -->
-
+    <div id="light" class="white_content">
+        <form action="/admin_govern" method="POST"> <span class="text_span" id="">ID:&emsp;&emsp;</span>
+            <input name="admin_id" type="text" class="search-txt" id="input_di" placeholder="请输入ID"><br>
+            <span class="text_span" id="">用户名:</span>
+            <input name="username" type="text" class="search-txt" id="input_name" placeholder="请输入用户名"><br>
+            <span class="text_span" id="">密码:&emsp;</span>
+            <input name="password" type="text" class="search-txt" id="input_password" /><br>
+            <span class="text_span" id="">邮箱:&emsp;</span>
+            <input name="email" type="text" class="search-txt" id="input_email" placeholder="请输入邮箱"><br>
+            <span><button class="search-btnLeft">确认</button></span>
+            <span><button class="search-btnMiddle" onclick="eliminateMin()">清空</button></span>
+            <span><button class="search-btnRight" onclick="Hide()"><a class="X" href="javascript:void(0)" onclick="document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">X</a></button></span></form>
+    </div>
+    <div id="fade" class="black_overlay"></div>
     <!-- jQuery -->
     <script src="javascripts/adminlte/jquery.min.js"></script>
     <!-- Bootstrap -->
@@ -684,6 +884,8 @@
     <script src="javascripts/adminlte/Chart.min.js "></script>
     <script src="javascripts/adminlte/demo.js "></script>
     <script src="javascripts/adminlte/dashboard3.js "></script>
+    <!-- add -->
+    <script src="javascripts/adminlte/add.js"></script>
 </body>
 
 </html>l
