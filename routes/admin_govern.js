@@ -29,5 +29,19 @@ router.post('/admin_govern', function(req, res, next) {
         }
         res.redirect('/admin_govern')
     })
-})
+});
+router.get('/admin_govern/del/:admin_id', function(req, res) {
+    var id = req.params.admin_id;
+    var mysqlQuery_del = "delete from tab_admin where admin_id=" + id
+    console.log(id)
+    console.log(mysqlQuery_del)
+    db.DBConnection.query(mysqlQuery_del, function(err, rows) {
+        if (err) {
+            res.end('删除失败：' + err)
+        } else {
+            res.redirect('/admin_govern')
+        }
+    });
+});
+
 module.exports = router;

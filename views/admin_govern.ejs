@@ -180,7 +180,7 @@
             <!-- SEARCH FORM -->
             <form class="form-inline ml-3">
                 <div class="input-group input-group-sm">
-                    <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+                    <input class="form-control form-control-navbar" type="search" placeholder="username" aria-label="Search">
                     <div class="input-group-append">
                         <button class="btn btn-navbar" type="submit">
                 <i class="fas fa-search"></i>
@@ -816,7 +816,7 @@
                         <td>
                             <%=o.email %>
                         </td>
-                        <td><button class="btn">删除</button>
+                        <td><button class="btn"><a href="/admin_govern/del/<%=o.admin_id %>">删除</a></button>
                             <button class="btn">修改</button>
                         </td>
                     </tr>
@@ -868,10 +868,11 @@
             <input name="password" type="text" class="search-txt" id="input_password" /><br>
             <span class="text_span" id="">邮箱:&emsp;</span>
             <input name="email" type="text" class="search-txt" id="input_email" placeholder="请输入邮箱"><br>
-            <span><button class="search-btnLeft">确认</button></span>
-            <span><button class="search-btnMiddle" onclick="eliminateMin()">清空</button></span>
-            <span><button class="search-btnRight" onclick="Hide()"><a class="X" href="javascript:void(0)" onclick="document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">X</a></button></span></form>
+            <span><button class="search-btnLeft">确认</button></span></form>
+        <span class="search-btnMiddle" onclick="eliminateMin()">清空</span>
+        <span><button class="search-btnRight"><a class="X" href="javascript:void(0)" onclick="document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">X</a></button></span>
     </div>
+
     <div id="fade" class="black_overlay"></div>
     <!-- jQuery -->
     <script src="javascripts/adminlte/jquery.min.js"></script>
