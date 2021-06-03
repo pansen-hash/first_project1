@@ -4,7 +4,7 @@ var db = require('./../app')
 
 /* GET home page. */
 router.get('/admin_govern', function(req, res, next) {
-    var mysqlQuery = 'SELECT *FROM tab_admin'
+    var mysqlQuery = 'SELECT *FROM tab_admin ORDER BY admin_id ASC'
     db.DBConnection.query(mysqlQuery, function(err, rows, fields) {
         if (err) {
             console.log(err);
