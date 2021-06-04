@@ -37,6 +37,7 @@ var admin_governRouter = require('./routes/admin_govern');
 var admin_userRouter = require('./routes/admin_user');
 var sendRouter = require('./routes/send');
 var admin_govern_searchRouter = require('./routes/admin_govern_search');
+var admin_govern_updataRouter = require('./routes/admin_govern_updata');
 
 var app = express();
 
@@ -62,6 +63,7 @@ app.use('/', admin_governRouter);
 app.use('/', admin_userRouter);
 app.use('/', sendRouter);
 app.use('/', admin_govern_searchRouter);
+app.use('/', admin_govern_updataRouter);
 
 
 

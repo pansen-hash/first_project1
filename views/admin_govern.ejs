@@ -820,7 +820,7 @@
                             <%=o.email %>
                         </td>
                         <td><button class="btn"><a href="/admin_govern/del/<%=o.admin_id %>">删除</a></button>
-                            <button class="btn">修改</button>
+                            <button class="btn"><a class="update_text" href="/admin_govern_updata/<%=o.admin_id %>">修改</a></button>
                         </td>
                     </tr>
                     <%}%>
@@ -876,7 +876,7 @@
         <span><button class="search-btnRight"><a class="X" href="javascript:void(0)" onclick="document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">X</a></button></span>
     </div>
 
-    <div id="fade" class="black_overlay"></div>
+
     <!-- jQuery -->
     <script src="javascripts/adminlte/jquery.min.js"></script>
     <!-- Bootstrap -->

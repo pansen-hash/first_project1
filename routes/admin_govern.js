@@ -44,4 +44,5 @@ router.get('/admin_govern/del/:admin_id', function(req, res) {
     });
 });
 
+
 module.exports = router;

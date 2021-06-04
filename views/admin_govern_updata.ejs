@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>修改页面</title>
+</head>
+
+<body>
+    <form action="/admin_govern_updata" method="post">
+        <input type="hidden" value="<%=datas[0].admin_id %>" name="admin_id"> 用户名：
+        <input type="text" name="username" value="<%=datas[0].username %>"><br> 密码：
+        <input type="text" name="password" value="<%=datas[0].password %>"><br>邮箱：
+        <input type="text" name="email" value="<%=datas[0].email %>"><br>
+        <input type="submit" value="提交">
+    </form>
+</body>
+
+</html>
